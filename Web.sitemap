@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+     Name: Nicholas Regan
+     Date: 11/19/2017
+     Abstract: Homework 6
+-->
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="~/" title="Home" description="Home">
+    <siteMapNode url="~/Default.aspx" title="Home" description="Go to the homepage" />
+    <siteMapNode url="~/Reviews/Default.aspx" title="Reviews" description="Reviews published on this site">
+      <siteMapNode url="~/Reviews/AllByGenre.aspx" title="By Genre" description="All Reviews Grouped by Genre" />
+      <siteMapNode url="~/Reviews/All.aspx" title="All Reviews" description="All Reviews" />
+    </siteMapNode>
+    <siteMapNode url="~/PhotoAlbums/" title="Gig Pics" description="All Gig Pics">
+      <siteMapNode url="~/PhotoAlbums/Default.aspx" title="Gig Pics" description="All Gig Pics" />
+      <siteMapNode url="~/NewPhotoAlbum.aspx" title="New Album" description="Create a new Photo Album with Gig Pics" />
+    </siteMapNode>
+    <siteMapNode url="~/About/Default.aspx" title="About" description="About this Site">
+      <siteMapNode url="~/About/Contact.aspx" title="Contact Us" description="Contact Us" />
+      <siteMapNode url="~/About/AboutUs.aspx" title="About Us" description="About Us" />
+      <siteMapNode url="~/MyProfile.aspx" title="My Profile" description="My Profile" />
+    </siteMapNode>
+    <siteMapNode url="~/Demos/Default.aspx" title="Demos" description="Nick Regan's Demos">
+      <siteMapNode url="~/Demos/BasicSelectors.aspx" title="Basic Selectors" description="Nick Regan's Basic Selectors" />
+      <siteMapNode url="~/Demos/CalculatorDemo.aspx" title="Calculator Demo" description="Nick Regan's Calculator Demo" />
+      <siteMapNode url="~/Demos/CodeBehind.aspx" title="Code Behind" description="Nick Regan's Code Behind" />
+      <siteMapNode url="~/Demos/CodeInline.aspx" title="Code Inline" description="Nick Regan's Code Inline" />
+      <siteMapNode url="~/Demos/Containers.aspx" title="Containers" description="Nick Regan's Containers" />
+      <siteMapNode url="~/Demos/ControlsDemo.aspx" title="Controls Demo" description="Nick Regan's Controls Demo" />
+      <siteMapNode url="~/Demos/CssDemo.aspx" title="Css Demo" description="Nick Regan's Css Demo" />
+      <siteMapNode url="~/Demos/Email.aspx" title="Email" description="Nick Regan's Email" />
+      <siteMapNode url="~/Demos/jQuery.aspx" title="jQuery" description="Nick Regan's jQuery" />
+      <siteMapNode url="~/Demos/jQueryDemos.aspx" title="jQuery Demos" description="Nick Regan's jQuery Demos" />
+      <siteMapNode url="~/Demos/ListControls.aspx" title="List Controls" description="Nick Regan's List Controls" />
+      <siteMapNode url="~/Demos/SkinsDemo.aspx" title="Skins Demo" description="Nick Regan's Skins Demo" />
+      <siteMapNode url="~/Demos/Source.aspx" title="Source" description="Nick Regan's Source" />
+      <siteMapNode url="~/Demos/State.aspx" title="State" description="Nick Regan's State" />
+      <siteMapNode url="~/Demos/TableDemo.aspx" title="Table Demo" description="Nick Regan's Table Demo" />
+      <siteMapNode url="~/Demos/Target.aspx" title="Target" description="Nick Regan's Target" />
+      <siteMapNode url="~/Demos/UpdatePanel.aspx" title="Update Panel" description="Nick Regan's Update Panel" />
+      <siteMapNode url="~/Demos/WebServices.aspx" title="Web Services" description="Nick Regan's Web Services" />
+      <siteMapNode url="~/Demos/Events.aspx" title="Events" description="Nick Regan's Events" />
+    </siteMapNode>
+    <siteMapNode url="~/Homework/Default.aspx" title="Homework" description="Nick Regan's Homework">
+      <siteMapNode url="~/Homework/Homework2.aspx" title="Homework2" description="Nick Regan's Homework2" />
+      <siteMapNode url="~/Homework/Homework3.aspx" title="Homework3" description="Nick Regan's Homework3" />
+      <siteMapNode url="~/Homework/Homework4.aspx" title="Homework4" description="Nick Regan's Homework4" />
+      <siteMapNode url="~/Homework/MidTerm.aspx" title="MidTerm" description="Nick Regan's MidTerm" />
+      <siteMapNode url="~/Homework/Homework6.aspx" title="Homework6" description="Nick Regan's Homework6" />
+    </siteMapNode>
+    <siteMapNode url="~/Login.aspx" title="Login" description="Log in to this web site" />
+  </siteMapNode>
+</siteMap>

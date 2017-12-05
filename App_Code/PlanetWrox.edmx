@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PlanetWroxModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PlanetWroxModelStoreContainer">
+          <EntitySet Name="TGenres" EntityType="PlanetWroxModel.Store.TGenres" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TPhotoAlbums" EntityType="PlanetWroxModel.Store.TPhotoAlbums" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TPictures" EntityType="PlanetWroxModel.Store.TPictures" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TReviews" EntityType="PlanetWroxModel.Store.TReviews" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TPictures_TPhotoAlbums" Association="PlanetWroxModel.Store.FK_TPictures_TPhotoAlbums">
+            <End Role="TPhotoAlbums" EntitySet="TPhotoAlbums" />
+            <End Role="TPictures" EntitySet="TPictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TReviews_TGenres" Association="PlanetWroxModel.Store.FK_TReviews_TGenres">
+            <End Role="TGenres" EntitySet="TGenres" />
+            <End Role="TReviews" EntitySet="TReviews" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TGenres">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="intSortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TPhotoAlbums">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="nvarchar" MaxLength="100" />
+          <Property Name="strUserName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="TPictures">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="strDescription" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="strToolTip" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="strImageUrl" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="intPhotoAlbumID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TReviews">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="strTitle" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="strSummary" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="strBody" Type="nvarchar(max)" />
+          <Property Name="intGenreID" Type="int" Nullable="false" />
+          <Property Name="blnAuthorized" Type="bit" Nullable="false" />
+          <Property Name="dtmCreateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="dtmUpdateDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TPictures_TPhotoAlbums">
+          <End Role="TPhotoAlbums" Type="PlanetWroxModel.Store.TPhotoAlbums" Multiplicity="1" />
+          <End Role="TPictures" Type="PlanetWroxModel.Store.TPictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TPhotoAlbums">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TPictures">
+              <PropertyRef Name="intPhotoAlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TReviews_TGenres">
+          <End Role="TGenres" Type="PlanetWroxModel.Store.TGenres" Multiplicity="1" />
+          <End Role="TReviews" Type="PlanetWroxModel.Store.TReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TGenres">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TReviews">
+              <PropertyRef Name="intGenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PlanetWroxModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PlanetWroxEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="TGenres" EntityType="PlanetWroxModel.TGenre" />
+          <EntitySet Name="TReviews" EntityType="PlanetWroxModel.TReview" />
+          <AssociationSet Name="FK_TReviews_TGenres" Association="PlanetWroxModel.FK_TReviews_TGenres">
+            <End Role="TGenres" EntitySet="TGenres" />
+            <End Role="TReviews" EntitySet="TReviews" />
+          </AssociationSet>
+          <EntitySet Name="TPhotoAlbums" EntityType="PlanetWroxModel.TPhotoAlbum" />
+          <EntitySet Name="TPictures" EntityType="PlanetWroxModel.TPicture" />
+          <AssociationSet Name="FK_TPictures_TPhotoAlbums" Association="PlanetWroxModel.FK_TPictures_TPhotoAlbums">
+            <End Role="TPhotoAlbum" EntitySet="TPhotoAlbums" />
+            <End Role="TPicture" EntitySet="TPictures" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TGenre">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="intSortOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TReviews" Relationship="PlanetWroxModel.FK_TReviews_TGenres" FromRole="TGenres" ToRole="TReviews" />
+        </EntityType>
+        <EntityType Name="TReview">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="strTitle" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="strSummary" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="strBody" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="intGenreID" Type="Int32" Nullable="false" />
+          <Property Name="blnAuthorized" Type="Boolean" Nullable="false" />
+          <Property Name="dtmCreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dtmUpdateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TGenre" Relationship="PlanetWroxModel.FK_TReviews_TGenres" FromRole="TReviews" ToRole="TGenres" />
+        </EntityType>
+        <Association Name="FK_TReviews_TGenres">
+          <End Role="TGenres" Type="PlanetWroxModel.TGenre" Multiplicity="1" />
+          <End Role="TReviews" Type="PlanetWroxModel.TReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TGenres">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TReviews">
+              <PropertyRef Name="intGenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TPhotoAlbum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="strName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TPictures" Relationship="PlanetWroxModel.FK_TPictures_TPhotoAlbums" FromRole="TPhotoAlbum" ToRole="TPicture" />
+          <Property Type="String" Name="strUserName" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="strDescription" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="strToolTip" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="strImageUrl" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intPhotoAlbumID" Nullable="false" />
+          <NavigationProperty Name="TPhotoAlbum" Relationship="PlanetWroxModel.FK_TPictures_TPhotoAlbums" FromRole="TPicture" ToRole="TPhotoAlbum" />
+        </EntityType>
+        <Association Name="FK_TPictures_TPhotoAlbums">
+          <End Type="PlanetWroxModel.TPhotoAlbum" Role="TPhotoAlbum" Multiplicity="1" />
+          <End Type="PlanetWroxModel.TPicture" Role="TPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TPhotoAlbum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TPicture">
+              <PropertyRef Name="intPhotoAlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PlanetWroxModelStoreContainer" CdmEntityContainer="PlanetWroxEntities">
+          <EntitySetMapping Name="TGenres">
+            <EntityTypeMapping TypeName="PlanetWroxModel.TGenre">
+              <MappingFragment StoreEntitySet="TGenres">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="intSortOrder" ColumnName="intSortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TReviews">
+            <EntityTypeMapping TypeName="PlanetWroxModel.TReview">
+              <MappingFragment StoreEntitySet="TReviews">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="strTitle" ColumnName="strTitle" />
+                <ScalarProperty Name="strSummary" ColumnName="strSummary" />
+                <ScalarProperty Name="strBody" ColumnName="strBody" />
+                <ScalarProperty Name="intGenreID" ColumnName="intGenreID" />
+                <ScalarProperty Name="blnAuthorized" ColumnName="blnAuthorized" />
+                <ScalarProperty Name="dtmCreateDateTime" ColumnName="dtmCreateDateTime" />
+                <ScalarProperty Name="dtmUpdateDateTime" ColumnName="dtmUpdateDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPhotoAlbums">
+            <EntityTypeMapping TypeName="PlanetWroxModel.TPhotoAlbum">
+              <MappingFragment StoreEntitySet="TPhotoAlbums">
+                <ScalarProperty Name="strUserName" ColumnName="strUserName" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPictures">
+            <EntityTypeMapping TypeName="PlanetWroxModel.TPicture">
+              <MappingFragment StoreEntitySet="TPictures">
+                <ScalarProperty Name="intPhotoAlbumID" ColumnName="intPhotoAlbumID" />
+                <ScalarProperty Name="strImageUrl" ColumnName="strImageUrl" />
+                <ScalarProperty Name="strToolTip" ColumnName="strToolTip" />
+                <ScalarProperty Name="strDescription" ColumnName="strDescription" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
