@@ -1,0 +1,33 @@
+/*  
+    Name: Nicholas Regan
+    Date: 9/17/2017
+    Abstract: Homework2
+*/
+
+        .tableWidth 
+        {
+            width: 28%;
+        }
+
+        .columnWidth 
+        {
+            width: 228px
+        }
+
+        .columnHeight 
+        {
+            height: 25px;
+        }
+
+        table 
+        {
+            background-color: silver;
+            width: 228px;
+        }
+
+        hr 
+        {
+            border-bottom: 5px solid black;
+ 
+        }
+
